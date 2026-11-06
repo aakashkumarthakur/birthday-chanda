@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Chanda!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--sky1:#8FD6EE;--sky2:#E6F7FB;--ink:#17324D;--card:#FFF6E3;--cloud:#fff;--sunc:#FFC933;--coral:#FF5E5B;--sun:#FFC933;--mint:#2FC79A;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky1:#0E2740;--sky2:#1C4563;--ink:#FFF6E3;--card:#21405D;--cloud:rgba(255,255,255,.14);--sunc:#FFF1C9}}
+:root[data-theme="dark"]{--sky1:#0E2740;--sky2:#1C4563;--ink:#FFF6E3;--card:#21405D;--cloud:rgba(255,255,255,.14);--sunc:#FFF1C9}
+html,body{height:100%;margin:0}
+body{font-family:Nunito,"Trebuchet MS",sans-serif;font-weight:600;color:var(--ink);background:linear-gradient(var(--sky1),var(--sky2));overflow:hidden;position:relative;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;right:-30px;top:60px;width:140px;height:140px;border-radius:50%;background:var(--sunc);box-shadow:0 0 0 16px rgba(255,201,51,.22),0 0 0 38px rgba(255,201,51,.12)}
+button{font:inherit;color:inherit;border:0;padding:0;cursor:pointer;background:none}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.cl{position:fixed;height:32px;width:130px;background:var(--cloud);border-radius:40px;animation:drift linear infinite}
+.cl::before,.cl::after{content:"";position:absolute;border-radius:50%;background:var(--cloud)}
+.cl::before{left:22px;top:-16px;width:50px;height:50px}.cl::after{left:62px;top:-26px;width:60px;height:60px}
+@keyframes drift{from{left:-220px}to{left:105%}}
+#app{position:relative;z-index:1;height:100%;display:flex;flex-direction:column}
+#bunt{display:flex;justify-content:space-between;padding:0 6px;height:50px;position:relative;flex:none}
+#bunt::before{content:"";position:absolute;left:0;right:0;top:4px;height:2px;background:var(--ink);opacity:.5}
+#bunt i{width:26px;height:34px;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;animation:sway 2.6s ease-in-out infinite alternate}
+@keyframes sway{from{rotate:-6deg}to{rotate:6deg}}
+header{flex:none;text-align:center;padding:0 16px}
+#dots{display:flex;gap:10px;justify-content:center;margin:6px 0 10px}
+#dots b{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink);transition:.3s}
+#dots b.cur{background:var(--sun);transform:scale(1.3)}#dots b.done{background:var(--coral);border-color:var(--coral);transform:scale(1)}
+h1{font:700 clamp(28px,8vw,40px)/1.1 Fredoka,"Trebuchet MS",sans-serif;margin:0}
+#sub{margin:6px 0 0;font-size:17px;min-height:26px}
+main{flex:1;position:relative;min-height:0}
+.stage{position:absolute;inset:0;display:none}.stage.on{display:block}
+/* balloons */
+.b{position:absolute;width:76px;height:94px;border-radius:50% 50% 48% 48%/58% 58% 42% 42%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.7) 0 8%,transparent 9%),var(--c);box-shadow:inset -8px -10px 0 rgba(0,0,0,.1);animation:bob var(--d,3s) ease-in-out infinite alternate}
+.b::before{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-6px;border:6px solid transparent;border-bottom:9px solid var(--c);border-top:0}
+.b::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:64px;margin-top:3px;background:var(--ink);opacity:.5;transform:skewX(6deg)}
+@keyframes bob{from{transform:translateY(-8px) rotate(-3deg)}to{transform:translateY(10px) rotate(3deg)}}
+.b.rise{position:fixed;bottom:-180px;z-index:5;animation:rise 9s linear forwards}
+@keyframes rise{to{transform:translateY(-125vh) rotate(6deg)}}
+.b.pop{animation:pop .22s ease-out forwards;pointer-events:none}
+@keyframes pop{50%{transform:scale(1.35)}to{transform:scale(1.6);opacity:0}}
+#slots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:8px}
+.sl{width:44px;height:52px;border-radius:12px;border:3px dashed var(--ink);display:grid;place-items:center;font:700 28px Fredoka,sans-serif}
+.sl.got{border-style:solid;background:var(--sun);color:#17324D;animation:land .5s cubic-bezier(.3,1.7,.5,1)}
+@keyframes land{from{transform:translateY(-40px) scale(.5)}}
+/* cake */
+#cakeBox{position:absolute;left:50%;bottom:3%;width:260px;height:300px;margin-left:-130px;display:none;transform-origin:50% 100%;transform:scale(var(--s,1))}
+#cakeBox.on{display:block}
+@media (max-height:700px){#cakeBox{--s:.8}}
+#cakeBox.wob{animation:wob .5s}@keyframes wob{25%{transform:scale(var(--s,1)) rotate(-1.5deg)}75%{transform:scale(var(--s,1)) rotate(1.5deg)}}
+.plate{position:absolute;bottom:0;left:-14px;right:-14px;height:18px;border-radius:50%;background:#fff;box-shadow:0 6px 0 #C9DCE6}
+#plateBtn{position:absolute;inset:0;z-index:3}
+#plateBtn::after{content:"";position:absolute;bottom:-4px;left:-20px;right:-20px;height:26px;border-radius:50%;border:3px solid var(--coral);animation:ring 1.2s ease-out infinite}
+@keyframes ring{from{transform:scale(.9);opacity:1}to{transform:scale(1.15);opacity:0}}
+.stack{position:absolute;bottom:14px;left:0;right:0;display:flex;flex-direction:column-reverse;align-items:center}
+.layer{height:58px;border-radius:14px 14px 6px 6px;position:relative;background:var(--c);opacity:0;transform:translateY(-340px) scale(1.1);transition:transform .7s cubic-bezier(.3,1.6,.5,1),opacity .15s}
+.layer.in{opacity:1;transform:none}
+.layer::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;border-radius:14px 14px 0 0;background:var(--ic)}
+.layer::after{content:"";position:absolute;left:0;right:0;top:13px;height:14px;background:radial-gradient(circle at 10px 0,var(--ic) 9px,transparent 10px) repeat-x;background-size:20px 14px}
+.l1{width:260px;--c:#8A5237;--ic:#FFF1D6}.l2{width:220px;--c:#FF9FB0;--ic:#FFF6E3}.l3{width:180px;--c:#FFE3A3;--ic:#FF5E6C}
+.sp{position:absolute;width:5px;height:11px;border-radius:3px;animation:land .4s cubic-bezier(.3,1.7,.5,1) backwards;z-index:2}
+#cands{position:absolute;bottom:180px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.c{position:relative;width:26px;height:78px;display:flex;align-items:flex-end;justify-content:center;transform:translateY(-40px) scale(0);transition:transform .5s cubic-bezier(.3,1.7,.5,1)}
+#cakeBox.cand .c{transform:none}
+.c .st{width:11px;height:46px;border-radius:3px 3px 0 0;background:repeating-linear-gradient(135deg,#fff 0 6px,var(--k) 6px 12px);position:relative}
+.c .st::before{content:"";position:absolute;left:4px;top:-6px;width:2px;height:6px;background:#3a2a22}
+.fl{position:absolute;bottom:50px;left:50%;margin-left:-8px;width:16px;height:26px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(ellipse at 50% 70%,#fff6c4 0 25%,#FFC933 45%,#F7873B 100%);box-shadow:0 0 22px 6px rgba(255,201,51,.6);transform:scale(0);transform-origin:50% 100%;transition:transform .25s}
+.c.lit .fl{transform:scale(1);animation:flick .35s ease-in-out infinite alternate}
+@keyframes flick{to{transform:scale(.9,1.12) rotate(3deg)}}
+.c:not(.lit):not(.out) .st{animation:nudge 1.6s ease-in-out infinite}
+#cakeBox:not(.cand) .c{animation:none}
+@keyframes nudge{50%{transform:translateY(-4px)}}
+.sm{position:absolute;bottom:58px;left:50%;margin-left:-6px;width:12px;height:12px;border-radius:50%;background:rgba(140,150,160,.55);filter:blur(3px);animation:smoke 1.7s ease-out forwards;pointer-events:none}
+@keyframes smoke{to{transform:translate(14px,-90px) scale(4);opacity:0}}
+/* gift + final */
+#gift{position:absolute;left:50%;top:40%;width:150px;height:150px;margin:-75px 0 0 -75px;animation:wig 1.8s ease-in-out infinite}
+@keyframes wig{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-6deg)}80%{transform:rotate(6deg)}90%{transform:rotate(-4deg)}}
+#gift.open{animation:none}
+.gb{position:absolute;bottom:0;left:15px;width:120px;height:92px;border-radius:6px;background:var(--coral)}
+.gb::after,.gl::after{content:"";position:absolute;left:50%;margin-left:-11px;top:0;bottom:0;width:22px;background:var(--sun)}
+.gl{position:absolute;left:6px;bottom:88px;width:138px;height:34px;border-radius:8px;background:#E24B49;transition:transform .8s cubic-bezier(.3,1.4,.5,1),opacity .8s;transform-origin:0 100%}
+.gl::before{content:"";position:absolute;left:50%;top:-22px;margin-left:-22px;width:44px;height:26px;border:7px solid var(--sun);border-radius:50% 50% 8px 8px}
+#gift.open .gl{transform:translate(40px,-120px) rotate(35deg);opacity:0}
+#gtxt{position:absolute;left:0;right:0;top:calc(40% + 90px);text-align:center;font-size:18px}
+#final{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;text-align:center;pointer-events:none;overflow:auto}
+#final.on{display:flex}#final button{pointer-events:auto}
+#ttl{font:700 clamp(40px,12vw,82px)/1 Fredoka,"Trebuchet MS",sans-serif}
+#ttl span{display:inline-block;animation:jump 1.5s ease-in-out infinite;text-shadow:0 4px 0 rgba(23,50,77,.18)}
+@keyframes jump{0%,55%,100%{transform:none}25%{transform:translateY(-18px) rotate(-5deg)}}
+#nm{background:var(--coral);color:#fff;font:700 clamp(24px,7vw,38px) Fredoka,sans-serif;padding:8px 28px;border-radius:12px;rotate:-2deg;box-shadow:0 6px 0 rgba(23,50,77,.2)}
+#msg{max-width:440px;background:var(--card);border-radius:22px;padding:18px 22px;font-size:18px;line-height:1.5;box-shadow:0 10px 0 rgba(23,50,77,.12)}
+#msg p{margin:0 0 8px}#msg em{font-style:normal;font-weight:800}
+#again{background:var(--mint);color:#0d3b2e;font:700 18px Fredoka,sans-serif;padding:10px 26px;border-radius:30px;box-shadow:0 5px 0 rgba(0,0,0,.2)}
+#again:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+#toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 70px);transform:translate(-50%,-30px);background:var(--coral);color:#fff;font:700 20px Fredoka,sans-serif;padding:10px 24px;border-radius:30px;box-shadow:0 5px 0 rgba(0,0,0,.2);opacity:0;pointer-events:none;z-index:9;transition:.35s cubic-bezier(.3,1.6,.5,1);white-space:nowrap}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:8}
+@media (prefers-reduced-motion:reduce){.cl,#bunt i,.b,#gift,#ttl span{animation:none}}
+</style>
+</head>
+<body>
+<div class="cl" style="top:130px;animation-duration:70s;animation-delay:-20s"></div>
+<div class="cl" style="top:300px;animation-duration:95s;animation-delay:-60s;scale:.8"></div>
+<div class="cl" style="top:470px;animation-duration:80s;animation-delay:-5s;scale:1.2"></div>
+<div id="app">
+ <div id="bunt"></div>
+ <header>
+  <div id="dots"><b></b><b></b><b></b><b></b><b></b></div>
+  <div id="ttlwrap"><h1 id="h"></h1><p id="sub"></p></div>
+ </header>
+ <main>
+  <section class="stage on" id="s1"><div id="bl"></div><div id="slots"></div></section>
+  <div id="cakeBox">
+   <div id="cands"></div>
+   <div class="stack"><div class="layer l1"></div><div class="layer l2"></div><div class="layer l3" id="top"></div></div>
+   <div class="plate"></div>
+   <button id="plateBtn" aria-label="Add a cake layer" hidden></button>
+  </div>
+  <section class="stage" id="s5">
+   <button id="gift" aria-label="Open the gift"><span class="gb"></span><span class="gl"></span></button>
+   <div id="gtxt"></div>
+   <div id="final">
+    <div id="ttl" aria-label="Happy Birthday"></div>
+    <div id="nm">CH Chanda Thakur</div>
+    <div id="msg">
+     <p>Wishing you a year full of laughter, good luck and every little thing that makes you smile.</p>
+     <p>Thank you for being the best sister in the whole world.</p>
+     <p><em>With love, your brother</em> &#10084;&#65039;</p>
+    </div>
+    <button id="again">Play again</button>
+   </div>
+  </section>
+ </main>
+</div>
+<canvas id="fx"></canvas>
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const COL=['#FF5E5B','#FFC933','#2FC79A','#3AA7E0','#FF8FA3','#F7873B','#FFF6E3'];
+const cv=$('#fx'),cx=cv.getContext('2d');let W,H,P=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}addEventListener('resize',rs);rs();
+function burst(x,y,n=24,o={}){for(let i=0;i<n;i++){const a=Math.random()*6.283,s=(o.s||6)*(.4+Math.random());P.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-(o.up??2),r:Math.random()*6,vr:(Math.random()-.5)*.4,c:o.c||COL[i%COL.length],z:4+Math.random()*5,l:(o.l||60)+Math.random()*50,t:o.t||0,g:o.g??.15})}}
+(function loop(){cx.clearRect(0,0,W,H);P=P.filter(p=>p.l>0&&p.y<H+20);for(const p of P){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.99;p.r+=p.vr;p.l--;cx.save();cx.globalAlpha=Math.min(1,p.l/25);cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;if(p.t){cx.beginPath();cx.arc(0,0,p.z/1.6,0,6.3);cx.fill()}else cx.fillRect(-p.z/2,-p.z/4,p.z,p.z/2);cx.restore()}requestAnimationFrame(loop)})();
+const mid=e=>{const r=e.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]};
+let ac;const A=()=>ac=ac||new(window.AudioContext||window.webkitAudioContext)();
+function popSnd(){try{const c=A(),n=c.sampleRate*.12,b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n)**3;const s=c.createBufferSource(),g=c.createGain();g.gain.value=.5;s.buffer=b;s.connect(g).connect(c.destination);s.start()}catch(e){}}
+function chime(f=[660,880,1175]){try{const c=A();f.forEach((h,i)=>{const o=c.createOscillator(),g=c.createGain(),t=c.currentTime+i*.12;o.type='triangle';o.frequency.value=h;g.gain.setValueAtTime(.001,t);g.gain.exponentialRampToValueAtTime(.25,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+.5);o.connect(g).connect(c.destination);o.start(t);o.stop(t+.55)})}catch(e){}}
+/* bunting */
+$('#bunt').innerHTML=Array.from({length:14},(_,i)=>`<i style="background:${COL[i%6]};margin-top:${Math.round(Math.sin(i/13*Math.PI)*10)+4}px;animation-delay:${-i*.3}s"></i>`).join('');
+const dots=$$('#dots b');let st=1;
+const T=[['Pop the balloons','Pop all 6 to spell her name'],['Bake the cake','Tap the plate to stack 3 layers'],['Light the candles','Tap each candle to light it'],['Make a wish','Tap each flame to blow it out'],['One last thing','Tap the gift']];
+const sub=t=>$('#sub').textContent=t;
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1300)}
+function done(n,m){dots[n-1].classList.add('done');chime();toast(m||'Task '+n+' complete!');burst(W/2,H*.28,45,{s:7});setTimeout(()=>go(n+1),1600)}
+function go(n){st=n;$('#s1').classList.toggle('on',n==1);$('#s5').classList.toggle('on',n>=5);$('#cakeBox').classList.toggle('on',n>=2&&n<=4);
+ dots.forEach((d,i)=>d.classList.toggle('cur',i==n-1));$('#ttlwrap').hidden=n==6;$('#plateBtn').hidden=n!=2;
+ if(T[n-1]){$('#h').textContent=T[n-1][0];sub(T[n-1][1])}
+ if(n==3)setTimeout(()=>$('#cakeBox').classList.add('cand'),100);
+ if(n==6)finale()}
+/* 1 balloons */
+const BC=['#FF5E5B','#FFC933','#2FC79A','#3AA7E0','#FF8FA3','#F7873B'],LX=[5,37,69,16,47,72],LY=[3,0,6,42,38,44],LET='CHANDA';
+function popB(b){if(b.dead)return false;b.dead=1;popSnd();const[x,y]=mid(b);burst(x,y,14,{c:b.style.getPropertyValue('--c')});burst(x,y,14);b.classList.add('pop');setTimeout(()=>b.remove(),260);return true}
+let popped=0;
+$('#bl').innerHTML=LET.split('').map((l,i)=>`<button class="b" aria-label="Balloon" style="--c:${BC[i]};--d:${2.6+i*.35}s;left:${LX[i]}%;top:${LY[i]}%;animation-delay:${-i*.5}s"></button>`).join('');
+$('#slots').innerHTML=LET.split('').map(()=>'<div class="sl"></div>').join('');
+$$('#bl .b').forEach((b,i)=>b.onclick=()=>{if(!popB(b))return;const s=$$('.sl')[i];s.textContent=LET[i];s.classList.add('got');popped++;sub(popped<6?`${popped} of 6 popped`:'C-H-A-N-D-A!');if(popped==6)done(1)});
+/* 2 cake */
+let L=0;
+$('#plateBtn').onclick=()=>{if(L>2)return;$$('.layer')[L].classList.add('in');L++;popSnd();sub(L<3?`Layer ${L} of 3`:'Looking delicious');const[x,y]=mid($('.plate'));setTimeout(()=>{burst(x,y-30,12,{s:4,g:.1});$('#cakeBox').classList.add('wob');setTimeout(()=>$('#cakeBox').classList.remove('wob'),500)},550);
+ if(L==3){$('#plateBtn').hidden=true;setTimeout(()=>{for(let i=0;i<16;i++){const s=document.createElement('i');s.className='sp';s.style.cssText=`left:${10+Math.random()*158}px;top:${2+Math.random()*10}px;background:${COL[i%6]};rotate:${Math.random()*180}deg;animation-delay:${i*.04}s`;$('#top').append(s)}},700);setTimeout(()=>done(2),1500)}};
+/* 3 + 4 candles */
+const KC=['#FF5E5B','#3AA7E0','#FFC933','#2FC79A','#FF8FA3'];let lit=0,out=0;
+$('#cands').innerHTML=KC.map((k,i)=>`<button class="c" aria-label="Candle" style="--k:${k};transition-delay:${i*.1}s"><i class="fl"></i><i class="st"></i></button>`).join('');
+$$('.c').forEach(c=>c.onclick=()=>{
+ if(st==3&&!c.classList.contains('lit')){c.classList.add('lit');lit++;chime([1000]);const[x,y]=mid(c);burst(x,y-30,10,{c:'#FFC933',t:1,s:3,g:.05});sub(`${lit} of 5 lit`);if(lit==5)done(3)}
+ else if(st==4&&c.classList.contains('lit')){c.classList.remove('lit');c.classList.add('out');out++;popSnd();const s=document.createElement('i');s.className='sm';c.append(s);setTimeout(()=>s.remove(),1800);sub(`${out} of 5 flames out`);$('#cakeBox').classList.add('wob');setTimeout(()=>$('#cakeBox').classList.remove('wob'),500);if(out==5)done(4,'Wish made!')}});
+/* 5 gift + finale */
+let opened=0;
+$('#gift').onclick=()=>{if(st!=5||opened)return;opened=1;$('#gift').classList.add('open');const[x,y]=mid($('#gift'));burst(x,y,60,{s:9});chime([523,659,784,1047]);setTimeout(()=>{dots[4].classList.add('done');go(6)},1100)};
+$('#ttl').innerHTML=[...'Happy Birthday!'].map((ch,i)=>ch==' '?'<br>':`<span style="color:${['#FF5E5B','#F7A400','#1FAE82','#2D8FD0','#E8587A'][i%5]};animation-delay:${i*.09}s">${ch}</span>`).join('');
+function finale(){
+ $('#s5').classList.add('on');$('#gift').hidden=true;$('#gtxt').hidden=true;$('#final').classList.add('on');
+ setInterval(()=>P.push({x:Math.random()*W,y:-10,vx:(Math.random()-.5)*2,vy:2+Math.random()*2,r:0,vr:.1,c:COL[Math.random()*7|0],z:6+Math.random()*4,l:400,t:0,g:.02}),110);
+ setInterval(()=>burst(W*(.15+Math.random()*.7),H*(.12+Math.random()*.35),45,{t:1,c:COL[Math.random()*6|0],s:7,up:0,g:.06,l:50}),1000);
+ const rise=()=>{const b=document.createElement('button');b.className='b rise';b.setAttribute('aria-label','Balloon');b.style.cssText=`--c:${BC[Math.random()*6|0]};left:${Math.random()*85}%;animation-duration:${7+Math.random()*4}s`;b.onclick=()=>popB(b);b.onanimationend=e=>{if(e.animationName=='rise')b.remove()};document.body.append(b)};
+ rise();setInterval(rise,1100);
+ burst(W/2,H/2,80,{s:10})}
+document.addEventListener('pointerdown',e=>{if(st==6&&!e.target.closest('button'))burst(e.clientX,e.clientY,35,{t:1,c:COL[Math.random()*6|0],s:6,up:0,g:.06,l:45})});
+$('#again').onclick=()=>location.reload();
+go(1);
+</script>
+</body>
+</html>
